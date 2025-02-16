@@ -80,7 +80,7 @@ def add_book():
         author=data['author'],
         price=data['price'],
         description=data.get('description', ''),
-        image_filename=image_filename or data.get("image_filename")  # Store filename if provided
+        image_filename=image_filename or data.get("image_filename")
     )
 
     db.session.add(new_book)
