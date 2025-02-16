@@ -1,0 +1,45 @@
+.footer {
+    grid-area: footer;
+    background-color: #222;
+    color: white;
+    padding: 20px 0;
+}
+
+.footer .container {
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    margin-bottom: 20px;
+    flex: 1 1 250px;
+    min-width: 250px;
+    padding: 0 15px;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+}
+
+.newsletter {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+}
+
+.subscribe-btn {
+    background-color: #f4b400;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}

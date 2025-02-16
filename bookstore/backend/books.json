@@ -1,0 +1,72 @@
+[
+    {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "price": 10.99,
+        "description": "A novel set in the Jazz Age that explores themes of wealth, love, and the American Dream.",
+        "image_filename": "great_gatsby.jpeg"
+    },
+    {
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "price": 12.99,
+        "description": "A novel about racial injustice in the Deep South seen through the eyes of a young girl.",
+        "image_filename": "to_kill_mockingbird.jpeg"
+    },
+    {
+        "title": "1984",
+        "author": "George Orwell",
+        "price": 9.99,
+        "description": "A dystopian novel that critiques totalitarian regimes and government surveillance.",
+        "image_filename": "1984.jpeg"
+    },
+    {
+        "title": "Harry Potter and the Sorcerer’s Stone",
+        "author": "J.K. Rowling",
+        "price": 15.99,
+        "description": "The first book in the Harry Potter series, introducing the magical world of Hogwarts.",
+        "image_filename": "harry_potter.jpeg"
+    },
+    {
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "price": 14.50,
+        "description": "A fantasy novel about Bilbo Baggins’ adventure to reclaim a stolen treasure.",
+        "image_filename": "the_hobbit.jpeg"
+    },
+    {
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "price": 11.50,
+        "description": "A classic novel that explores the themes of love, social status, and misunderstandings.",
+        "image_filename": "pride_and_prejudice.jpeg"
+    },
+    {
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "price": 13.25,
+        "description": "A novel about teenage alienation and rebellion, narrated by Holden Caulfield.",
+        "image_filename": "catcher_in_the_rye.jpeg"
+    },
+    {
+        "title": "The Lord of the Rings",
+        "author": "J.R.R. Tolkien",
+        "price": 18.99,
+        "description": "An epic fantasy adventure following Frodo Baggins’ journey to destroy the One Ring.",
+        "image_filename": "lord_of_the_rings.jpeg"
+    },
+    {
+        "title": "Moby Dick",
+        "author": "Herman Melville",
+        "price": 16.75,
+        "description": "A novel about Captain Ahab’s obsession with hunting the white whale, Moby Dick.",
+        "image_filename": "moby_dick.jpeg"
+    },
+    {
+        "title": "War and Peace",
+        "author": "Leo Tolstoy",
+        "price": 19.50,
+        "description": "A historical novel set during the Napoleonic Wars, exploring the impact on Russian society.",
+        "image_filename": "war_and_peace.jpeg"
+    }
+]
