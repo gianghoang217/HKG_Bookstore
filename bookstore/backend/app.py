@@ -15,11 +15,11 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://giang:Bookstore12345!@l
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # JWT Configuration
-app.config['JWT_SECRET_KEY'] = "supersecretkey"  # Replace with a secure key
+app.config['JWT_SECRET_KEY'] = "supersecretkey"
 jwt = JWTManager(app)
 
 db.init_app(app)
-migrate = Migrate(app, db)  # ✅ Initialize Flask-Migrate
+migrate = Migrate(app, db)
 
 # Register Blueprints
 app.register_blueprint(auth_bp)
