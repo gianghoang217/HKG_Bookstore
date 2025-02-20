@@ -69,7 +69,7 @@ def view_cart_details():
             "title": item.Book.title,
             "author": item.Book.author,
             "price": item.Book.price,
-            "image_url": url_for('cart.serve_image', filename=item.Book.image_filename, _external=True) if item.Book.image_filename else None,
+            "image_url": item.Book.image_filename,
             "description": item.Book.description
         }
     } for item in cart_items]

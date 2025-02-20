@@ -23,7 +23,7 @@ def get_books():
         "author": b.author,
         "price": b.price,
         "description": b.description,
-        "image_url": url_for('books.serve_image', filename=b.image_filename, _external=True) if b.image_filename else None
+        "image_url": b.image_filename
     } for b in books])
 
 # Get Single Book
@@ -52,20 +52,13 @@ def allowed_file(filename):
 @books_bp.route('/book/add', methods=['POST'])
 @admin_required
 def add_book():
-    data = request.form
+    data = request.get_json()
+    print("Check Data", data)
     title = data['title']
     author = data['author']
     price = data['price']
     description = data['description']
-    image_filename = None
-
-    if 'image' in request.files:
-        image = request.files['image']
-        if image and allowed_file(image.filename):
-            filename = secure_filename(image.filename)
-            image_path = os.path.join(UPLOAD_FOLDER, filename)
-            image.save(image_path)
-            image_filename = filename
+    image_filename = data['image_filename']
 
     new_book = Book(
         title=title,
@@ -93,6 +86,7 @@ def update_book(id):
     book.author = data.get('author', book.author)
     book.price = data.get('price', book.price)
     book.description = data.get('description', book.description)
+    book.image_filename = data.get('image_filename', book.image_filename)
 
     db.session.commit()
     return jsonify({"message": "Book updated successfully"}), 200
