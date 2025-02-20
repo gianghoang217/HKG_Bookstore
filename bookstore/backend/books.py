@@ -1,8 +1,10 @@
+
 from flask import Blueprint, jsonify, request, send_from_directory, url_for
 from models import db, Book
 import json
 from werkzeug.utils import secure_filename
 import os
+from auth import admin_required 
 books_bp = Blueprint('books', __name__)
 
 
@@ -48,39 +50,29 @@ def allowed_file(filename):
 
 
 @books_bp.route('/book/add', methods=['POST'])
+@admin_required
 def add_book():
-    data = None
+    data = request.form
+    title = data['title']
+    author = data['author']
+    price = data['price']
+    description = data['description']
     image_filename = None
 
-    if "image" in request.files:  # Image uploaded
-        image = request.files["image"]
-        json_data = request.form.get("json")
-
-        if not json_data:
-            return jsonify({"error": "Missing book data"}), 400
-
-        try:
-            data = json.loads(json_data)
-        except json.JSONDecodeError:
-            return jsonify({"error": "Invalid JSON data"}), 400
-
+    if 'image' in request.files:
+        image = request.files['image']
         if image and allowed_file(image.filename):
             filename = secure_filename(image.filename)
             image_path = os.path.join(UPLOAD_FOLDER, filename)
             image.save(image_path)
-            image_filename = filename  # Save filename in DB
-
-    else:  # No image uploaded, handle JSON request
-        data = request.get_json()
-        if not data:
-            return jsonify({"error": "Missing JSON data"}), 400
+            image_filename = filename
 
     new_book = Book(
-        title=data['title'],
-        author=data['author'],
-        price=data['price'],
-        description=data.get('description', ''),
-        image_filename=image_filename or data.get("image_filename")
+        title=title,
+        author=author,
+        price=price,
+        description=description,
+        image_filename=image_filename
     )
 
     db.session.add(new_book)
@@ -90,6 +82,7 @@ def add_book():
 
 # Update Book
 @books_bp.route('/book/update/<int:id>', methods=['PUT'])
+@admin_required
 def update_book(id):
     book = Book.query.get(id)
     if not book:
@@ -106,6 +99,7 @@ def update_book(id):
 
 # Delete Book
 @books_bp.route('/book/delete/<int:id>', methods=['DELETE'])
+@admin_required
 def delete_book(id):
     book = Book.query.get(id)
     if not book:

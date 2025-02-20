@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
@@ -8,6 +9,7 @@ from books import books_bp
 from cart import cart_bp
 
 app = Flask(__name__, static_folder="static")
+app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static', 'uploads')
 CORS(app)
 # Database Configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://giang:Bookstore12345!@localhost/books_db'

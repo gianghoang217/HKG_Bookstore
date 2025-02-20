@@ -79,7 +79,7 @@ const Cart = () => {
                                 <img 
                                     src={item.book.image_url} 
                                     alt={item.book.title}
-                                    className="book-image"
+                                    className="book-picture"
                                 />
                                 <div className="item-details">
                                     <h3>{item.book.title}</h3>

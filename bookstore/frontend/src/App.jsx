@@ -6,9 +6,10 @@ import Cart from './components/Cart';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import AboutUs from './components/AboutUs';
+import AdminBookManagement from './components/AdminBookManagement';
 
 function App() {
-  const token = localStorage.getItem('access_token'); // Assuming you store the token in localStorage
+  const token = localStorage.getItem('access_token');
 
     
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<SignIn />} />
         <Route path="/register" element={<SignUp />} />
+        <Route path="/book-admin" element={<AdminBookManagement />} />
       </Routes>
     </Router>
   );
