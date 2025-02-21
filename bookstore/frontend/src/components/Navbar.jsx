@@ -47,10 +47,8 @@ useEffect(() => {
     };
 
     fetchCartCount();
-    // Set up an interval to refresh cart count periodically
     const interval = setInterval(fetchCartCount, 3000); // Updates every 3 seconds
 
-    // Cleanup interval on component unmount
     return () => clearInterval(interval);
 }, [isLoggedIn]);
 
